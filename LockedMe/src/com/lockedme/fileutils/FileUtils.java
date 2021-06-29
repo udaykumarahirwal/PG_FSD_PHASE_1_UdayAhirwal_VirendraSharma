@@ -91,9 +91,11 @@ public class FileUtils {
 	public void AddFileInDir(String fileName) throws LockedMeException {
 		File file= new File(this.directory, fileName);
 	    try {
-	    	file.createNewFile();
+	    	if(!file.createNewFile()) {
+	    		System.out.println("File already exists");
+	    	}
 	    } catch (IOException e) {
-	    	throw new LockedMeException("File already exists" + fileName);
+	    	throw new LockedMeException("Failed to create " + fileName);
 	    }
 
 	}

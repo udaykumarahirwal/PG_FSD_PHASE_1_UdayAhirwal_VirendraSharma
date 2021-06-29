@@ -54,7 +54,12 @@ public class LockedMe {
 		do{
 
 			lockedMe.DisplayOptions();
-			int userOption = Integer.parseInt(userInput.nextLine());
+			int userOption =0;
+			try {
+				userOption = Integer.parseInt(userInput.nextLine());
+			}catch (NumberFormatException e){
+				System.out.println("Please enter a valid option.");
+			}
 
 			switch(userOption) {
 			case 1:
@@ -97,9 +102,5 @@ public class LockedMe {
 			}
 		}while(true);
 	}
-
-
-
-
 
 }
